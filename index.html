@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html><!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Para mi princesita ❤️</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ff9a9e, #fecfef);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      color: white;
+      flex-direction: column;
+    }
+
+    .mensaje {
+      font-size: 1.5rem;
+      max-width: 600px;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      z-index: 2;
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 12px 25px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 12px;
+      background: #ff4d6d;
+      color: white;
+      cursor: pointer;
+      z-index: 2;
+    }
+
+    button:hover {
+      background: #ff1e4d;
+    }
+
+    .heart {
+      position: absolute;
+      color: #ff4d6d;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-10vh);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(110vh);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="mensaje">
+    Te amo con toda mí alma mí princesita hermosa, gracias por estar mí lado siempre y ser la persona que me motiva a ser mejor día a día, te amo con toda mí alma y espero que pronto podamos dormir abrazaditos porque ya te extraño, te amo hermosa 💖
+  </div>
+
+  <button onclick="reproducirMusica()">💖 Tocar música 💖</button>
+
+  <!-- IMPORTANTE: subí tu archivo como cancion.mp3 al repo -->
+  <audio id="musica" loop>
+    <source src="cancion.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    function reproducirMusica() {
+      const audio = document.getElementById('musica');
+      audio.play();
+    }
+
+    function crearCorazon() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.innerHTML = '💗';
+
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = (3 + Math.random() * 5) + 's';
+      heart.style.fontSize = (10 + Math.random() * 25) + 'px';
+
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 8000);
+    }
+
+    setInterval(crearCorazon, 200);
+  </script>
+
+</body>
+</html>
